@@ -1,6 +1,6 @@
 <?php
 /**
- * Default post template
+ * Front page template
  *
  * @author   Informatyk Kraków
  * @version  1.0.0

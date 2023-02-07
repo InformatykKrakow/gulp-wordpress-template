@@ -2,23 +2,40 @@
 /**
  * Header template
  *
- * @author   <Author>
+ * @author   Informatyk Kraków
  * @version  1.0.0
  * @package  <Package>
  */
 ?>
 
-<!doctype html>
+<!Doctype HTML>
 <html <?php language_attributes(); ?>>
+
 <head>
-	<meta charset="utf-8">
+	<meta charset="<?php bloginfo('charset'); ?>">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title><?php wp_title( '&ndash;', true, 'right' ); ?></title>
 	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+
+	<title><?php wp_title( '&ndash;', true, 'right' ); ?></title>
+
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+
+	<base href="<?php echo home_url(); ?>">
+
+	<!-- FAVICON  -->
+	<!-- Facebook verifacation -->
+	<!-- Google verifications - Search Console, UA, ADS, GTM -->
+	<!-- Lazy Loading loaded 
+
+	<div data-bg="url" class="lazyload"></div>
+	<img data-src="url" class="lazyload" alt="alt" />
+
+	-->
+
 	<?php wp_head(); ?>
 </head>
+
 <body <?php body_class(); ?>>
-<header class="header"></header>
-<nav class="navigation"></nav>
-<main class="main">
+
+	<main class="main">

@@ -4,11 +4,9 @@
 @import 'partials/variables';
 
 // --------------------------------------------------
-// bootstrap
+// Normalize
 
-@import '../node_modules/bootstrap/scss/bootstrap-reboot';
-@import '../node_modules/bootstrap/scss/bootstrap-grid';
-@import '../node_modules/bootstrap/scss/bootstrap-utilities';
+@import '../node_modules/normalize.css/normalize.css';
 
 // --------------------------------------------------
 // mixins
@@ -16,7 +14,7 @@
 @import 'mixins/fonts';
 @import 'mixins/helpers';
 
-// --------------------------------------------------
+// -------------------------------------------------- 
 // partials
 
 @import 'partials/base';

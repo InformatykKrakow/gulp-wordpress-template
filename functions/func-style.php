@@ -2,7 +2,7 @@
 /**
  * Style functions
  *
- * @author   <Author>
+ * @author   Informatyk Kraków
  * @version  1.0.0
  * @package  <Package>
  */
