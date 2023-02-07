@@ -1,16 +1,33 @@
 on: push
 name: Publish Website
 jobs:
-  FTP-Deploy-Action:
-    name: FTP-Deploy-Action
+  deploy_development:
+    name: Deploy to development env
     runs-on: ubuntu-latest
+    if: github.ref != 'refs/heads/master'
     steps:
-    - uses: actions/checkout@v2.1.0
-      with:
-        fetch-depth: 2
-    - name: FTP-Deploy-Action
-      uses: SamKirkland/FTP-Deploy-Action@3.1.1
-      with:
-        ftp-server: ftp://${{secrets.FTP_SERVER}}
-        ftp-username: ${{secrets.FTP_USERNAME}}
-        ftp-password: ${{secrets.FTP_PASSWORD}}
+      - name: Get lates code to deploy
+        uses: actions/checkout@v3
+      - name: Sync Files (deployment)
+        uses: SamKirkland/FTP-Deploy-Action@4.3.3
+        with:
+          server: ${{ secrets.FTP_SERVER_DEV }}
+          server-dir: ${{ secrets.FTP_PATH_DEV }}
+          username: ${{ secrets.FTP_USERNAME_DEV }}
+          password: ${{ secrets.FTP_PASSWORD_DEV }}
+
+  deploy_production:
+    name: Deploy to production env
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'
+    steps:
+      - name: Get lates code to deploy
+        uses: actions/checkout@v3
+
+      - name: Sync Files (deployment)
+        uses: SamKirkland/FTP-Deploy-Action@4.3.3
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          server-dir: ${{ secrets.FTP_PATH }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
